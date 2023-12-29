@@ -6,16 +6,16 @@ const apiClient = axios.create({
   withCredentials: false, // This is the default
   headers: {
     Accept: 'application/json',
-    'Content-Type': 'application/json'
-  }
+    'Content-Type': 'application/json',
+  },
 })
 
-apiClient.interceptors.request.use(config => {
+apiClient.interceptors.request.use((config) => {
   NProgress.start()
   return config
 })
 
-apiClient.interceptors.response.use(response => {
+apiClient.interceptors.response.use((response) => {
   NProgress.done()
   return response
 })
@@ -29,5 +29,5 @@ export default {
   },
   postEvent(event) {
     return apiClient.post('/events', event)
-  }
+  },
 }

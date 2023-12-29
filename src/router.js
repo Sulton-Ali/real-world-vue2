@@ -15,12 +15,12 @@ const router = new Router({
       path: '/',
       name: 'event-list',
       component: EventList,
-      props: true
+      props: true,
     },
     {
       path: '/event/create',
       name: 'event-create',
-      component: EventCreate
+      component: EventCreate,
     },
     {
       path: '/event/:id',
@@ -28,7 +28,7 @@ const router = new Router({
       component: EventShow,
       props: true,
       beforeEnter(routeTo, routeFrom, next) {
-        store.dispatch('event/fetchEvent', routeTo.params.id).then(event => {
+        store.dispatch('event/fetchEvent', routeTo.params.id).then((event) => {
           routeTo.params.event = event
           next()
         })
@@ -39,9 +39,9 @@ const router = new Router({
         //     next({ name: 'network-issue' })
         //   }
         // })
-      }
-    }
-  ]
+      },
+    },
+  ],
 })
 
 router.beforeEach((routeTo, routeFrom, next) => {

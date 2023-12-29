@@ -14,11 +14,18 @@
     <h2>Event details</h2>
     <p>{{ event.description }}</p>
 
-    <h2>Attendees
-      <span class="badge -fill-gradient">{{ event.attendees ? event.attendees.length : 0 }}</span>
+    <h2>
+      Attendees
+      <span class="badge -fill-gradient">{{
+        event.attendees ? event.attendees.length : 0
+      }}</span>
     </h2>
     <ul class="list-group">
-      <li v-for="(attendee, index) in event.attendees" :key="index" class="list-item">
+      <li
+        v-for="(attendee, index) in event.attendees"
+        :key="index"
+        class="list-item"
+      >
         <b>{{ attendee.name }}</b>
       </li>
     </ul>
@@ -33,9 +40,9 @@ export default {
   props: {
     event: {
       type: Object,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
   // beforeRouteEnter(routeTo, routeFrom, next) {
   //   NProgress.start()
   //   store.dispatch('event/fetchEvent', routeTo.params.id).then(() => {
